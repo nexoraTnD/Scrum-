@@ -1,0 +1,37 @@
+# Fichiers Git
+.git/
+.gitignore
+
+# Fichiers des IDE
+.idea/
+.vscode/
+
+# Fichiers temporaires et logs
+*.log
+logs/
+tmp/
+*.tmp
+*.swp
+
+# Secrets et informations sensibles
+.env
+.env.*
+**/secrets/
+**/*secret*
+**/*credentials*
+**/*.pem
+**/*.key
+**/*.p12
+**/*.jks
+
+# Fichiers inutiles pour l'image finale
+src/
+.mvn/
+mvnw
+mvnw.cmd
+pom.xml
+README.md
+
+# Garder uniquement le JAR nécessaire dans target
+target/*
+!target/gestion-etudiants-0.0.1-SNAPSHOT.jar
