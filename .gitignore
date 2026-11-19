@@ -1,0 +1,42 @@
+
+# Java - fichiers compiles
+*.class
+
+# Maven - fichiers generes
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Logs
+*.log
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Visual Studio Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Fichiers temporaires
+tmp/
+temp/
+
+# Variables d'environnement et secrets
+.env
+.env.*
+!.env.example
