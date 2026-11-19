@@ -68,3 +68,12 @@ Le développement est organisé en sprints, avec une répartition des tâches en
 ## Gestion du versionnement
 
 Le code source est hébergé sur GitHub. Git est utilisé pour le suivi des modifications et la collaboration entre les membres de l'équipe.
+## Workflow Git
+
+Le projet utilise une organisation Git basée sur trois types de branches :
+
+- `main` : version stable du projet.
+- `develop` : branche d'intégration des développements.
+- `feature/*` : branches dédiées aux nouvelles fonctionnalités.
+
+Chaque développeur travaille sur une branche feature. Une Pull Request est ensuite créée vers `develop`, puis examinée par un autre membre de l'équipe avant le merge.
