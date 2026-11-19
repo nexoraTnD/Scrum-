@@ -1,79 +1,173 @@
 # Scrum – Gestion des étudiants
 
-## Description du projet
+## 1. Description du projet
 
 Ce projet consiste à développer une application de gestion des étudiants dans le cadre d'un travail d'équipe utilisant la méthodologie Agile Scrum.
 
-L'application a pour objectif de faciliter la gestion des étudiants à travers différentes fonctionnalités, tout en assurant une organisation claire, une maintenance facile et une évolution progressive du système.
+## 2. Technologies utilisées
 
-## Technologies utilisées
+- Java 21
+- Spring Boot
+- Maven Wrapper
+- JUnit
+- Docker
 
-- Java
-- Maven
-- JUnit (tests unitaires)
+## 3. Prérequis
 
-## Structure du projet
+Avant de commencer, installer :
 
-```text
-Scrum/
-└── backend/
-    └── gestion-etudiants/
-        └── gestion-etudiants/
-```
-
-## Installation et exécution
-
-### Prérequis
-
-- Java JDK
-- Maven
+- Java JDK 21
 - Git
+- Docker (facultatif pour une exécution locale sans conteneur)
 
-### Cloner le repository
+Le projet utilise Maven Wrapper (`mvnw` et `mvnw.cmd`). Il n'est donc pas nécessaire d'installer Maven séparément.
+
+## 4. Récupération du projet
+
+Cloner le dépôt :
 
 ```bash
-git clone https://github.com/nexoraTnD/Scrum.git
+git clone https://github.com/nexoraTnD/Scrum-.git
 ```
 
-### Accéder au projet backend
+Accéder au dossier du backend :
+
+```bash
+cd Scrum-/backend/gestion-etudiants/gestion-etudiants
+```
+
+## 5. Vérification de Java
+
+```bash
+java -version
+```
+
+La version utilisée pour le projet est Java 21.
+
+## 6. Compilation du projet
+
+Sous Windows :
+
+```bash
+.\mvnw.cmd clean compile
+```
+
+Sous Linux / macOS :
+
+```bash
+./mvnw clean compile
+```
+
+## 7. Exécution des tests
+
+Sous Windows :
+
+```bash
+.\mvnw.cmd clean verify
+```
+
+Sous Linux / macOS :
+
+```bash
+./mvnw clean verify
+```
+
+Cette commande compile le projet et exécute les tests automatisés.
+
+Une exécution réussie affiche `BUILD SUCCESS`.
+
+## 8. Lancement de l'application
+
+Sous Windows :
+
+```bash
+.\mvnw.cmd spring-boot:run
+```
+
+Sous Linux / macOS :
+
+```bash
+./mvnw spring-boot:run
+```
+
+L'application est accessible à l'adresse :
+
+http://localhost:8080
+
+## 9. Construction de l'image Docker
+
+Se placer dans le dossier contenant le Dockerfile :
 
 ```bash
 cd backend/gestion-etudiants/gestion-etudiants
 ```
 
-### Compiler et tester le projet
+Générer le JAR :
 
 ```bash
-mvn clean install
+.\mvnw.cmd clean verify
 ```
 
-### Lancer les tests
+Construire l'image Docker :
 
 ```bash
-mvn test
+docker build -t gestion-etudiants:latest .
 ```
 
-## Équipe de développement
+Le fichier `.dockerignore` exclut les fichiers inutiles et les informations sensibles du contexte Docker.
+
+## 10. Lancement du conteneur Docker
+
+```bash
+docker run -d --name gestion-etudiants -p 8080:8080 gestion-etudiants:latest
+```
+
+Vérifier les conteneurs :
+
+```bash
+docker ps
+```
+
+Afficher les logs :
+
+```bash
+docker logs gestion-etudiants
+```
+
+Arrêter le conteneur :
+
+```bash
+docker stop gestion-etudiants
+```
+
+Supprimer le conteneur :
+
+```bash
+docker rm gestion-etudiants
+```
+
+## 11. Gestion des secrets
+
+Les mots de passe, fichiers `.env`, clés privées et certificats ne doivent pas être ajoutés au dépôt Git ni intégrés dans l'image Docker.
+
+Le fichier `.dockerignore` permet d'exclure les fichiers sensibles du contexte de construction Docker.
+
+Les secrets nécessaires doivent être fournis séparément au moment de l'exécution.
+
+## 12. Équipe de développement
 
 - Anwar
 - Sara
 - Chaima
 
-## Méthodologie de travail
+## 13. Méthodologie de travail
 
-Le projet est réalisé selon la méthodologie Agile Scrum.
+Le projet est réalisé selon la méthodologie Agile Scrum. Le développement est organisé en sprints avec des branches feature et des Pull Requests vers `develop`.
 
-Le développement est organisé en sprints, avec une répartition des tâches entre les membres de l'équipe, un suivi de l'avancement et une intégration progressive des fonctionnalités.
+## 14. Workflow Git
 
-## Gestion du versionnement
+- `main` : version stable.
+- `develop` : branche d'intégration.
+- `feature/*` : branches dédiées aux développements.
 
-Le code source est hébergé sur GitHub. Git est utilisé pour le suivi des modifications et la collaboration entre les membres de l'équipe.
-## Workflow Git
-
-Le projet utilise une organisation Git basée sur trois types de branches :
-
-- `main` : version stable du projet.
-- `develop` : branche d'intégration des développements.
-- `feature/*` : branches dédiées aux nouvelles fonctionnalités.
-
-Chaque développeur travaille sur une branche feature. Une Pull Request est ensuite créée vers `develop`, puis examinée par un autre membre de l'équipe avant le merge.
+Chaque Pull Request doit être examinée par un autre membre de l'équipe avant son intégration.
