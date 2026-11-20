@@ -41,7 +41,7 @@ class EtudiantControllerTest {
         mvc.perform(post(ROUTE)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(ETUDIANT_VALIDE))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").value(1));
 
         mvc.perform(get(ROUTE))
